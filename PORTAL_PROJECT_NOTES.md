@@ -55,7 +55,7 @@ portal.velnex.in/
   dashboard.php
   config/
     app.php
-    database.example.php
+    database.template.php
     database.local.php
   includes/
     auth.php
@@ -83,7 +83,7 @@ Keep it ignored in `.gitignore`.
 
 Commit only:
 
-`config/database.example.php`
+`config/database.template.php`
 
 ## First Backend Direction
 

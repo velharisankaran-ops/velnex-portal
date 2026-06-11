@@ -6,8 +6,8 @@
 - Added the first public login/request-access frontend flow for Business, Investor, Vendor / Partner, and Internal Team access paths.
 - Added the backend foundation for request capture:
   - `database/schema.sql` with the `access_requests` table.
-  - `config/database.example.php` and ignored `config/database.local.php` pattern.
-  - `config/app.php`, `config/app.local.example.php`, and ignored `config/app.local.php` pattern.
+  - `config/database.template.php` and ignored `config/database.local.php` pattern.
+  - `config/app.php`, `config/app.local.template.php`, and ignored `config/app.local.php` pattern.
   - `includes/db.php` for PDO database connections.
   - `includes/helpers.php` for shared escaping, config, redirect, and request-label helpers.
   - `submit-request.php` to validate and store request form submissions.
@@ -29,3 +29,4 @@
 - Replaced admin URL-key access with session-based admin login, logout, and password-hash configuration.
 - Added a CLI-only `scripts/make_admin_hash.php` helper for generating admin password hashes on a PHP host.
 - Simplified admin login configuration so the server-only config can use either `admin_password` or `admin_password_hash`, and the login form remains visible even before config is complete.
+- Renamed committed config template files and added `config/.htaccess` to block direct browser access to config files.

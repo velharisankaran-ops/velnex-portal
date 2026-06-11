@@ -70,7 +70,7 @@ Create `config/app.local.php` on the server:
 <?php
 
 return array(
-  'admin_username' => 'admin@example.com',
+  'admin_username' => 'admin@velnex.in',
   'admin_password' => 'your-strong-admin-password',
   'admin_password_hash' => null,
 );
@@ -88,7 +88,7 @@ Then use:
 <?php
 
 return array(
-  'admin_username' => 'admin@example.com',
+  'admin_username' => 'admin@velnex.in',
   'admin_password' => null,
   'admin_password_hash' => 'paste-password-hash-here',
 );

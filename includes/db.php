@@ -25,7 +25,7 @@ function portal_db()
   $config = portal_database_config();
 
   if (!$config) {
-    throw new RuntimeException('Database is not configured. Create config/database.local.php from config/database.example.php.');
+    throw new RuntimeException('Database is not configured. Create config/database.local.php from config/database.template.php.');
   }
 
   $charset = isset($config['charset']) ? $config['charset'] : 'utf8mb4';

@@ -30,7 +30,7 @@ $pageTitle = 'Velnex Portal Login';
       <form class="portal-form" action="pending.php" method="post">
         <label>
           <span>Email address</span>
-          <input type="email" name="email" placeholder="name@example.com" required>
+          <input type="email" name="email" placeholder="name@company.com" required>
         </label>
         <label>
           <span>Password</span>
