@@ -6,6 +6,17 @@ function portal_base_path($path = '')
   return $path === '' ? $base : $base . DIRECTORY_SEPARATOR . $path;
 }
 
+function portal_private_config_path($filename)
+{
+  $envDir = getenv('VELNEX_PORTAL_CONFIG_DIR');
+
+  if ($envDir) {
+    return rtrim($envDir, DIRECTORY_SEPARATOR . '/\\') . DIRECTORY_SEPARATOR . $filename;
+  }
+
+  return dirname(portal_base_path()) . DIRECTORY_SEPARATOR . 'portal-private' . DIRECTORY_SEPARATOR . $filename;
+}
+
 function portal_config()
 {
   static $config = null;
@@ -15,13 +26,20 @@ function portal_config()
   }
 
   $config = require portal_base_path('config/app.php');
+  $privatePath = portal_private_config_path('app.local.php');
   $localPath = portal_base_path('config/app.local.php');
 
-  if (file_exists($localPath)) {
-    $localConfig = require $localPath;
+  foreach (array($privatePath, $localPath) as $configPath) {
+    if (!file_exists($configPath)) {
+      continue;
+    }
+
+    $localConfig = require $configPath;
     if (is_array($localConfig)) {
       $config = array_merge($config, $localConfig);
     }
+
+    break;
   }
 
   return $config;

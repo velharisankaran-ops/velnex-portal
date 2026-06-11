@@ -49,13 +49,19 @@ $env:VELNEX_DB_PASSWORD = 'your_database_password'
 
 ## 3. Add private config on the server
 
-Create `config/database.local.php` on the server:
+Recommended: create a sibling folder outside the deployed app so Git deploys do not overwrite credentials:
+
+```text
+/public_html/portal-private/
+```
+
+Create `/public_html/portal-private/database.local.php`:
 
 ```php
 <?php
 
 return array(
-  'host' => 'localhost',
+  'host' => '127.0.0.1',
   'port' => 3306,
   'database' => 'u658377134_portal',
   'username' => 'u658377134_portalvelnexin',
@@ -64,7 +70,7 @@ return array(
 );
 ```
 
-Create `config/app.local.php` on the server:
+Create `/public_html/portal-private/app.local.php`:
 
 ```php
 <?php
@@ -94,7 +100,7 @@ return array(
 );
 ```
 
-Both local config files are ignored by Git and should not be committed.
+The app also supports `config/database.local.php` and `config/app.local.php`, but `/public_html/portal-private` is safer because it sits outside the Git-deployed folder.
 
 ## 4. Test the request flow
 

@@ -4,11 +4,18 @@ require_once __DIR__ . '/helpers.php';
 
 function portal_database_config()
 {
+  $privatePath = portal_private_config_path('database.local.php');
   $localPath = portal_base_path('config/database.local.php');
 
-  if (file_exists($localPath)) {
-    $config = require $localPath;
-    return is_array($config) ? $config : null;
+  foreach (array($privatePath, $localPath) as $configPath) {
+    if (!file_exists($configPath)) {
+      continue;
+    }
+
+    $config = require $configPath;
+    if (is_array($config)) {
+      return $config;
+    }
   }
 
   return null;
@@ -25,7 +32,7 @@ function portal_db()
   $config = portal_database_config();
 
   if (!$config) {
-    throw new RuntimeException('Database is not configured. Create config/database.local.php from config/database.template.php.');
+    throw new RuntimeException('Database is not configured. Create portal-private/database.local.php or config/database.local.php from config/database.template.php.');
   }
 
   $charset = isset($config['charset']) ? $config['charset'] : 'utf8mb4';
