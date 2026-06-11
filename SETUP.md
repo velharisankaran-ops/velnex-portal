@@ -57,8 +57,8 @@ Create `config/database.local.php` on the server:
 return array(
   'host' => 'localhost',
   'port' => 3306,
-  'database' => 'your_hostinger_database_name',
-  'username' => 'your_hostinger_database_user',
+  'database' => 'u658377134_portal',
+  'username' => 'u658377134_portalvelnexin',
   'password' => 'your_database_password',
   'charset' => 'utf8mb4',
 );

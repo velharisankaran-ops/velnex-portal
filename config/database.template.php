@@ -1,10 +1,10 @@
 <?php
 
 return array(
-  'host' => 'localhost',
+  'host' => '127.0.0.1',
   'port' => 3306,
-  'database' => 'velnex_portal',
-  'username' => 'velnex_portal_user',
+  'database' => 'u658377134_portal',
+  'username' => 'u658377134_portalvelnexin',
   'password' => 'replace-with-real-password',
   'charset' => 'utf8mb4',
 );
