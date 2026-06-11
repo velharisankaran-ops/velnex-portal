@@ -18,7 +18,7 @@ $pageTitle = 'Vendor Partner Request - Velnex Portal';
       <p>Use this if you are a service provider, agency, freelancer, consultant, or specialist team who can support Velnex client work.</p>
     </header>
 
-    <form class="portal-panel portal-form" action="pending.php" method="get">
+    <form class="portal-panel portal-form" action="submit-request.php" method="post">
       <input type="hidden" name="type" value="vendor">
       <label><span>Company / professional name</span><input name="vendor_name" required></label>
       <label><span>Contact person</span><input name="name" required></label>

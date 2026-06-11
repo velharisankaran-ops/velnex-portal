@@ -1,0 +1,28 @@
+# Velnex Portal Timeline
+
+## 2026-06-12
+
+- Created the custom PHP portal project for `portal.velnex.in`.
+- Added the first public login/request-access frontend flow for Business, Investor, Vendor / Partner, and Internal Team access paths.
+- Added the backend foundation for request capture:
+  - `database/schema.sql` with the `access_requests` table.
+  - `config/database.example.php` and ignored `config/database.local.php` pattern.
+  - `config/app.php`, `config/app.local.example.php`, and ignored `config/app.local.php` pattern.
+  - `includes/db.php` for PDO database connections.
+  - `includes/helpers.php` for shared escaping, config, redirect, and request-label helpers.
+  - `submit-request.php` to validate and store request form submissions.
+  - `admin/access-requests.php` to review submitted requests.
+  - `admin/update-request-status.php` to approve, reject, or reset request status.
+- Updated request forms to use `POST` instead of prototype `GET` submissions.
+- Updated the login prototype to avoid sending passwords through the URL.
+- Added `SETUP.md` with Hostinger database setup and test steps.
+- Installed `PyMySQL` into ignored local folder `.codex-tools/python` so Codex can connect to the Hostinger MySQL database after remote access is allowed and credentials are provided.
+- Added `scripts/apply_schema.py` to apply `database/schema.sql` to the remote Hostinger MySQL database using environment variables instead of committed credentials.
+- Made the database schema idempotent with `CREATE TABLE IF NOT EXISTS` so the setup script can be rerun safely.
+- Created ignored local config placeholders for the Hostinger database host/name and admin review key.
+- Switched the local database config to the separate portal database `u658377134_portal`.
+- Updated `scripts/apply_schema.py` so it can read ignored local database config, avoiding credentials in terminal commands.
+- Confirmed remote MySQL network access reaches Hostinger from public IP `120.89.74.57`, but schema import is blocked by MySQL authentication error 1045 for the provided database user details.
+- Confirmed Hostinger requires the prefixed MySQL username `u658377134_portalvelnexin`.
+- Applied `database/schema.sql` successfully to the separate portal database `u658377134_portal`.
+- Added `scripts/check_db.py` for repeatable remote database connectivity and table checks.

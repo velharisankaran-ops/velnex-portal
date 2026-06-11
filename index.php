@@ -27,7 +27,7 @@ $pageTitle = 'Velnex Portal Login';
       <div class="portal-mark">VX</div>
       <p class="portal-kicker">Account Login</p>
       <h2 id="login-title">Sign in to Velnex Portal</h2>
-      <form class="portal-form" action="pending.php" method="get">
+      <form class="portal-form" action="pending.php" method="post">
         <label>
           <span>Email address</span>
           <input type="email" name="email" placeholder="name@example.com" required>

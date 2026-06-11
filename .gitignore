@@ -1,4 +1,6 @@
-﻿config/database.local.php
+config/database.local.php
+config/app.local.php
+.codex-tools/
 .env
 .DS_Store
 Thumbs.db

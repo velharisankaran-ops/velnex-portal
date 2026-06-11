@@ -18,7 +18,7 @@ $pageTitle = 'Investor Access Request - Velnex Portal';
       <p>Use this if you need business review, operational visibility, risk understanding, and reporting before or after investment.</p>
     </header>
 
-    <form class="portal-panel portal-form" action="pending.php" method="get">
+    <form class="portal-panel portal-form" action="submit-request.php" method="post">
       <input type="hidden" name="type" value="investor">
       <label><span>Name</span><input name="name" required></label>
       <label><span>Email</span><input type="email" name="email" required></label>

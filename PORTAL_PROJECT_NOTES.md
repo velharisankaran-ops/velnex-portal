@@ -98,4 +98,20 @@ Start simple:
 
 ## Current Status
 
-Project folder created locally. Git initialized locally. GitHub remote still needs to be added after the repo is created.
+Frontend request flow is built.
+
+Backend foundation is added:
+
+- MySQL schema for `access_requests`
+- Private database config pattern
+- POST submission handler
+- Pending/error status page
+- Basic admin request review page protected by a private review key
+
+Next backend step:
+
+1. Create the Hostinger MySQL database.
+2. Import `database/schema.sql`.
+3. Add `config/database.local.php` and `config/app.local.php` on the server.
+4. Test one live request.
+5. Add approve/reject actions and real login users.

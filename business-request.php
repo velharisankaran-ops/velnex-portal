@@ -18,7 +18,7 @@ $pageTitle = 'Business Access Request - Velnex Portal';
       <p>Use this if you are a business owner or manager looking for business study, structure, reporting, and execution support.</p>
     </header>
 
-    <form class="portal-panel portal-form" action="pending.php" method="get">
+    <form class="portal-panel portal-form" action="submit-request.php" method="post">
       <input type="hidden" name="type" value="business">
       <label><span>Business name</span><input name="business_name" required></label>
       <label><span>Your name</span><input name="name" required></label>
