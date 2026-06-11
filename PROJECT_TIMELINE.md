@@ -32,3 +32,6 @@
 - Renamed committed config template files and added `config/.htaccess` to block direct browser access to config files.
 - Updated committed config templates with the real Hostinger portal database name and username, while keeping passwords out of Git.
 - Added support for private server config in `/public_html/portal-private` so Hostinger Git deploys can update `/public_html/portal` without overwriting credentials.
+- Redesigned `index.php` as the portal opening page with Velnex logo assets, category-based login dropdown, and category-based signup/request access dropdown.
+- Added `login.php` and `start-request.php` routing files for the new opening-page flows.
+- Connected the homepage Admin login category to the existing session-based admin authentication flow.

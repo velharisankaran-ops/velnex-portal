@@ -6,6 +6,7 @@ $pageTitle = 'Request Pending - Velnex Portal';
 $labels = portal_request_labels();
 $label = isset($labels[$type]) ? $labels[$type] : $labels['request'];
 $saved = isset($_GET['saved']) && $_GET['saved'] === '1';
+$loginPrototype = isset($_GET['login']) && $_GET['login'] === 'prototype';
 $error = isset($_GET['error']) ? preg_replace('/[^a-zA-Z0-9_-]/', '', $_GET['error']) : '';
 ?>
 <!DOCTYPE html>
@@ -20,7 +21,10 @@ $error = isset($_GET['error']) ? preg_replace('/[^a-zA-Z0-9_-]/', '', $_GET['err
   <main class="portal-shell">
     <section class="portal-card portal-status-card">
       <p class="portal-kicker"><?php echo portal_e($label); ?></p>
-      <?php if ($saved): ?>
+      <?php if ($loginPrototype): ?>
+        <h1>Login flow is being prepared.</h1>
+        <p>This role login will be connected after approved users and dashboards are added.</p>
+      <?php elseif ($saved): ?>
         <h1>Request received for review.</h1>
         <p>Your request has been stored and will be reviewed by Velnex before access is approved.</p>
       <?php elseif ($error === 'database'): ?>
