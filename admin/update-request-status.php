@@ -1,16 +1,11 @@
 <?php
 
 require_once __DIR__ . '/../includes/db.php';
+require_once __DIR__ . '/../includes/admin-auth.php';
+
+portal_admin_require_login();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-  portal_redirect('access-requests.php');
-}
-
-$config = portal_config();
-$adminKey = isset($config['admin_review_key']) ? (string) $config['admin_review_key'] : '';
-$providedKey = isset($_POST['key']) ? (string) $_POST['key'] : '';
-
-if ($adminKey === '' || !hash_equals($adminKey, $providedKey)) {
   portal_redirect('access-requests.php');
 }
 
@@ -19,7 +14,7 @@ $status = isset($_POST['status']) ? (string) $_POST['status'] : '';
 $allowedStatuses = array('pending', 'approved', 'rejected');
 
 if ($id <= 0 || !in_array($status, $allowedStatuses, true)) {
-  portal_redirect('access-requests.php?key=' . urlencode($providedKey));
+  portal_redirect('access-requests.php');
 }
 
 try {
@@ -34,4 +29,4 @@ try {
   error_log($exception->getMessage());
 }
 
-portal_redirect('access-requests.php?key=' . urlencode($providedKey));
+portal_redirect('access-requests.php');

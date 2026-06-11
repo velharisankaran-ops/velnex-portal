@@ -266,6 +266,15 @@ p {
   margin-top: 20px;
 }
 
+.portal-alert {
+  margin: 0 0 14px;
+  border: 1px solid #f0c5b3;
+  border-radius: 10px;
+  background: #fff7f3;
+  color: #7b3a22;
+  padding: 12px;
+}
+
 code {
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -277,6 +286,17 @@ code {
 
 .portal-admin-shell {
   width: min(100%, 1180px);
+}
+
+.portal-admin-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.portal-admin-topline a {
+  margin-bottom: 0;
 }
 
 .portal-table-wrap {

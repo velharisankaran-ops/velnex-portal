@@ -64,13 +64,22 @@ return array(
 );
 ```
 
+Create a password hash locally:
+
+```powershell
+php scripts/make_admin_hash.php "your-admin-password"
+```
+
+If PHP is not installed locally, use Hostinger terminal. Do not place the plain password in any committed file.
+
 Create `config/app.local.php` on the server:
 
 ```php
 <?php
 
 return array(
-  'admin_review_key' => 'replace-with-a-long-random-secret',
+  'admin_username' => 'admin@example.com',
+  'admin_password_hash' => 'paste-password-hash-here',
 );
 ```
 
@@ -81,7 +90,7 @@ Both local config files are ignored by Git and should not be committed.
 1. Open `https://portal.velnex.in/request-access.php`.
 2. Submit a Business, Investor, or Vendor request.
 3. Confirm that the pending page says the request was received.
-4. Open `https://portal.velnex.in/admin/access-requests.php?key=YOUR_SECRET_KEY`.
+4. Open `https://portal.velnex.in/admin/login.php`.
 5. Confirm the request appears in the admin table.
 
 ## Current limits

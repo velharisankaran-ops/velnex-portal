@@ -26,3 +26,5 @@
 - Confirmed Hostinger requires the prefixed MySQL username `u658377134_portalvelnexin`.
 - Applied `database/schema.sql` successfully to the separate portal database `u658377134_portal`.
 - Added `scripts/check_db.py` for repeatable remote database connectivity and table checks.
+- Replaced admin URL-key access with session-based admin login, logout, and password-hash configuration.
+- Added a CLI-only `scripts/make_admin_hash.php` helper for generating admin password hashes on a PHP host.

@@ -2,5 +2,6 @@
 
 return array(
   'app_name' => 'Velnex Portal',
-  'admin_review_key' => null,
+  'admin_username' => null,
+  'admin_password_hash' => null,
 );
