@@ -37,23 +37,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <h1 id="admin-login-title">Velnex portal admin</h1>
 
       <?php if (!portal_admin_credentials_configured()): ?>
-        <p class="portal-alert">Admin login is not configured. Create <code>config/app.local.php</code> from <code>config/app.local.example.php</code> and set an admin username and password hash.</p>
-      <?php else: ?>
-        <?php if ($error !== ''): ?>
-          <p class="portal-alert"><?php echo portal_e($error); ?></p>
-        <?php endif; ?>
-        <form class="portal-form" action="login.php" method="post">
-          <label>
-            <span>Email address</span>
-            <input type="email" name="username" required autofocus>
-          </label>
-          <label>
-            <span>Password</span>
-            <input type="password" name="password" required>
-          </label>
-          <button type="submit">Login</button>
-        </form>
+        <p class="portal-alert">Admin login is not configured on the server yet.</p>
       <?php endif; ?>
+      <?php if ($error !== ''): ?>
+        <p class="portal-alert"><?php echo portal_e($error); ?></p>
+      <?php endif; ?>
+      <form class="portal-form" action="login.php" method="post">
+        <label>
+          <span>Email address</span>
+          <input type="email" name="username" required autofocus>
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" name="password" required>
+        </label>
+        <button type="submit">Login</button>
+      </form>
     </section>
   </main>
 </body>

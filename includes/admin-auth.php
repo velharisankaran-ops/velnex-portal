@@ -13,20 +13,29 @@ function portal_admin_start_session()
 function portal_admin_credentials_configured()
 {
   $config = portal_config();
-  return !empty($config['admin_username']) && !empty($config['admin_password_hash']);
+  return !empty($config['admin_username']) && (!empty($config['admin_password_hash']) || !empty($config['admin_password']));
 }
 
 function portal_admin_check_credentials($username, $password)
 {
   $config = portal_config();
   $configuredUsername = isset($config['admin_username']) ? (string) $config['admin_username'] : '';
+  $configuredPassword = isset($config['admin_password']) ? (string) $config['admin_password'] : '';
   $passwordHash = isset($config['admin_password_hash']) ? (string) $config['admin_password_hash'] : '';
 
-  if ($configuredUsername === '' || $passwordHash === '') {
+  if ($configuredUsername === '' || ($passwordHash === '' && $configuredPassword === '')) {
     return false;
   }
 
-  return hash_equals($configuredUsername, $username) && password_verify($password, $passwordHash);
+  if (!hash_equals($configuredUsername, $username)) {
+    return false;
+  }
+
+  if ($passwordHash !== '') {
+    return password_verify($password, $passwordHash);
+  }
+
+  return hash_equals($configuredPassword, $password);
 }
 
 function portal_admin_login($username)

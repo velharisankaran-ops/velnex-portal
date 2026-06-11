@@ -64,14 +64,6 @@ return array(
 );
 ```
 
-Create a password hash locally:
-
-```powershell
-php scripts/make_admin_hash.php "your-admin-password"
-```
-
-If PHP is not installed locally, use Hostinger terminal. Do not place the plain password in any committed file.
-
 Create `config/app.local.php` on the server:
 
 ```php
@@ -79,6 +71,25 @@ Create `config/app.local.php` on the server:
 
 return array(
   'admin_username' => 'admin@example.com',
+  'admin_password' => 'your-strong-admin-password',
+  'admin_password_hash' => null,
+);
+```
+
+For a stronger setup, store a hash instead of the plain password:
+
+```bash
+php scripts/make_admin_hash.php "your-admin-password"
+```
+
+Then use:
+
+```php
+<?php
+
+return array(
+  'admin_username' => 'admin@example.com',
+  'admin_password' => null,
   'admin_password_hash' => 'paste-password-hash-here',
 );
 ```

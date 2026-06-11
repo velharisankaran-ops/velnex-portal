@@ -2,5 +2,6 @@
 
 return array(
   'admin_username' => 'admin@example.com',
-  'admin_password_hash' => 'replace-with-password_hash-output',
+  'admin_password' => 'replace-with-strong-admin-password',
+  'admin_password_hash' => null,
 );

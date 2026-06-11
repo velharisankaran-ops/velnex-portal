@@ -28,3 +28,4 @@
 - Added `scripts/check_db.py` for repeatable remote database connectivity and table checks.
 - Replaced admin URL-key access with session-based admin login, logout, and password-hash configuration.
 - Added a CLI-only `scripts/make_admin_hash.php` helper for generating admin password hashes on a PHP host.
+- Simplified admin login configuration so the server-only config can use either `admin_password` or `admin_password_hash`, and the login form remains visible even before config is complete.
