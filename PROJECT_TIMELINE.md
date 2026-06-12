@@ -35,3 +35,4 @@
 - Redesigned `index.php` as the portal opening page with Velnex logo assets, category-based login dropdown, and category-based signup/request access dropdown.
 - Added `login.php` and `start-request.php` routing files for the new opening-page flows.
 - Connected the homepage Admin login category to the existing session-based admin authentication flow.
+- Added `ADMIN_SITEMAP.md` to define the planned admin control layer, build order, and first admin MVP scope.
