@@ -19,7 +19,7 @@ if ($type === 'admin') {
   portal_redirect('admin/login.php');
 }
 
-$allowedTypes = array('business', 'investor', 'vendor', 'internal');
+$allowedTypes = array('business', 'investor', 'vendor', 'partner');
 
 if (!in_array($type, $allowedTypes, true)) {
   portal_redirect('index.php');

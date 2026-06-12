@@ -37,9 +37,8 @@ $iconUrl = 'https://velnex.in/wp-content/uploads/2026/05/cropped-velnex_vx_icon_
             <option value="">Choose user type</option>
             <option value="business">Business Client</option>
             <option value="investor">Investor Client</option>
-            <option value="vendor">Vendor / Partner</option>
-            <option value="internal">Velnex Internal Team</option>
-            <option value="admin">Admin</option>
+            <option value="vendor">Vendor</option>
+            <option value="partner">Partner</option>
           </select>
         </label>
         <label>
